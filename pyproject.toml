@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coindcx-futures-framework"
+version = "0.1.0"
+description = "Free-tier event-driven CoinDCX INR futures scanner and guarded execution framework"
+requires-python = ">=3.11"
+dependencies = ["python-socketio[asyncio_client]>=5.11"]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+coindcx-futures = "coindcx_futures.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["coindcx_futures*"]
+

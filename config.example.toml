@@ -1,0 +1,42 @@
+[market]
+margin_currency = "INR"
+max_symbols = 30
+timeframes = ["1m", "5m", "15m", "1h"]
+stale_after_seconds = 20
+instrument_refresh_seconds = 900
+rest_timeout_seconds = 10
+orderbook_poll_seconds = 10
+
+[scanner]
+candidate_count_per_side = 3
+review_interval_seconds = 60
+minimum_candidate_score = 0.15
+minimum_model_confidence = 65
+maximum_model_requests_per_minute = 1
+
+[model]
+enabled = true
+provider = "gemini-developer-api"
+model = "gemini-3.1-flash-lite"
+timeout_seconds = 20
+
+[execution]
+mode = "paper"
+margin_type = "isolated"
+max_entry_age_seconds = 5
+
+[risk]
+# Leave unset until you deliberately configure live limits. All amounts are INR.
+max_risk_per_trade_inr = 0
+max_daily_loss_inr = 0
+max_total_exposure_inr = 0
+max_open_positions = 0
+max_leverage = 0
+
+[analysis.weights]
+momentum = 0.25
+trend = 0.25
+relative_strength = 0.20
+liquidity = 0.15
+btc_regime = 0.10
+funding = 0.05
